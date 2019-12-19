@@ -1,0 +1,7 @@
+<cn-header></cn-header>
+<div class="container">
+  <div class="row">
+    <cn-add-note class="col-lg-2"></cn-add-note>
+    <cn-note class="col-lg-4" *ngFor="let note of shownNotes" [note]="note" (delete)="handleDelete($event)"></cn-note>
+  </div>
+</div>

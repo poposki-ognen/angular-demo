@@ -1,0 +1,20 @@
+<div class="col-lg-12">
+  <div class="card">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <a routerLink= 'note/{{note.id}}' class="card-title">{{note.title}}</a>
+          <div class="col-md-12 d-flex flex-column">
+            <div class="col-md-12" *ngFor="let item of note.items">
+              <input [checked]="item.checked" type="checkbox" disabled><span class="card-text">{{item.title}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <i class="fa fa-trash col-lg-6 text-danger" (click)="deleteNote(note.id)"></i>
+          <a routerLink= 'note/{{note.id}}' class="fas fa-pencil-alt col-lg-6 text-warning" ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

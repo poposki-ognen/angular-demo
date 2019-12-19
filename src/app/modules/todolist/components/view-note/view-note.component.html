@@ -1,0 +1,17 @@
+<div *ngIf="!!note">
+  <div class="container">
+    <div class="">
+      <label>Title: </label>
+      {{note.title}}</div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of note.items;let i = index">
+        <input [(ngModel)]="item.checked" type="checkbox" (change)="updateNote()">
+        <input [ngStyle]="item.disabled ? {border: 0}: ''" [disabled]="editState != i" [(ngModel)]="item.title">
+        <i class="fa fa-trash" *ngIf="note.items.length > 1"aria-hidden="true" (click)="deleteNote(i)" ></i>
+        <i class="fas fa-pencil-alt" *ngIf="editState != i" (click)="editState = i"></i>
+        <i class="fas fa-check" *ngIf="editState == i" (click)="updateNote(i)"></i>
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="!note">No Note found</div>
